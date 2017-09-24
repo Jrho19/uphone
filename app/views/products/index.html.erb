@@ -1,0 +1,8 @@
+<h1>Products</h1>
+
+<% @products.each do |product| %>
+  <div>
+    <strong>Name: </strong><%= link_to product.name, product_path(product) %>
+    <strong>Price: </strong><%= number_to_currency(product.price) %>
+  </div><br>
+<% end %>

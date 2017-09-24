@@ -9,6 +9,19 @@
   </head>
 
   <body>
+    <div>
+      <ul>
+        <% if logged_in? %>
+          <li><%= link_to "Logout", logout_path %></li>
+          <li><%= link_to 'View Your Orders', user_orders_path(current_user) %></li>
+        <% end %>
+
+        <% if logged_out? %>
+          <li><%= link_to "Login", login_path %></li>
+          <li><%= link_to "Register", register_path %></li>
+        <% end %>
+      </ul>
+    </div>
     <%= yield %>
   </body>
 </html>

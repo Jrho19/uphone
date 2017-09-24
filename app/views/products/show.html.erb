@@ -1,0 +1,15 @@
+<h1><%= @product.name %></h1>
+
+<%= number_to_currency(@product.price) %>
+
+<% if logged_in? %>
+  <%= form_for [@product, @order] do |f| %>
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity %>
+
+    <%= f.submit %>
+  <% end %>
+<% else %>
+  <p>Login to order!</p>
+<% end %>
+<%= flash[:error] %>

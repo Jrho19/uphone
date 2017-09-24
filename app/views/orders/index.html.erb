@@ -1,0 +1,24 @@
+<%= link_to 'Products', products_path %>
+<h1><%= current_user.first_name %>'s Orders</h1>
+
+<% if @orders.empty? %>
+  <p>
+    You have no orders.
+  </p>
+<% else %>
+  <% @orders.each do |order| %>
+    <p>
+      Product: <%= order.product.name %>
+    </p>
+    <p>
+      Shipping Fee: <%= number_to_currency(order.shipping_fee) %>
+    </p>
+    <p>
+      Qty: <%= order.quantity %>
+    </p>
+    <p>
+      Total: <%= number_to_currency(order.total) %>
+    </p>
+    <hr>
+  <% end %>
+<% end %>
